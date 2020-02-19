@@ -5,7 +5,7 @@ const router = express.Router()
 router.get('/', (req, res) => {
     db('cars').then((cars) => {
         res.status(200).json(cars)
-    }).then((error) => {
+    }).catch((error) => {
         res.status(500).json({message:"The request could not be processed."})
     })
 })
